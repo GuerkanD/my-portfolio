@@ -1,21 +1,23 @@
+import { experiences } from "../assets/experiences";
+
 export function Experience() {
     return (
-        <div>
-            <h1>My Experience</h1>
-            <div>
-                <div>
-                    <h2>Experience 1</h2>
-                    <p>Experience 1 Description</p>
-                </div>
-                <div>
-                    <h2>Experience 2</h2>
-                    <p>Experience 2 Description</p>
-                </div>
-                <div>
-                    <h2>Experience 3</h2>
-                    <p>Experience 3 Description</p>
-                </div>
+        <section>
+            <h1 className="text-2xl font-bold mb-1">My Experience</h1>
+            <div className="flex flex-col gap-4">
+                {mapExperiences()}
             </div>
-        </div>
+        </section>
     )
+}
+
+function mapExperiences() {
+    return experiences.map((exp, i) => (
+        <div key={i} className="p-4 border rounded shadow hover:bg-gray-100">
+            <h2 className="text-xl font-semibold">{exp.jobTitle}</h2>
+            <h3 className="text-md text-[#dee2e6]">{exp.companyName} – {exp.location}</h3>
+            <p className="text-sm text-[#dee2e6]">{exp.startDate} – {exp.endDate ?? "Present"}</p>
+            {exp.description && <p className="mt-2 text-[#dee2e6]">{exp.description}</p>}
+        </div>
+    ));
 }
