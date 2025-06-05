@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { experiences } from "../assets/experiences";
-import { div } from "motion/react-client";
 
 export function Experience() {
     return (
