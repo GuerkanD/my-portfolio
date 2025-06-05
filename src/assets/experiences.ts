@@ -12,7 +12,7 @@ export const experiences: Experience[] = [
     {
         companyName: "OPTIMA Pharma GmbH",
         location: "Mornshausen",
-        jobTitle:"Workstudent SCADA",
+        jobTitle:"Student Intern SCADA",
         startDate:"01/2022",
         description: "Supporting the SCADA Team with installation and preparation of Hardware"
     },

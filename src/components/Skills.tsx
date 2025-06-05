@@ -1,4 +1,5 @@
 import { skills, SkillArea, SkillLevel, Skill } from "../assets/skills";
+import { motion } from "motion/react";
 
 export function Skills() {
     return (
@@ -43,16 +44,17 @@ function sortSkills() {
             {Object.entries(areaMap).map(([area, skills]) => (
                 <div key={area}>
                     <h3 className="text-2xl font-bold">{area}</h3>
-                    <ul className="border-2 border-[#343a40] rounded-lg p-2 grid grid-cols-3 gap-2">
+                    <hr className="mb-2 border-white/50"></hr>
+                    <ul className="rounded-lg p-2 grid lg:grid-cols-3 gap-2 bg-white/30">
                         {skills.map(skill => (
-                            <li className="border-2 border-[#343a40] rounded-lg p-2 hover:bg-[#6c757d]" key={skill.name}>
-                                <button>
-                                    <i className={skill.icon}></i> {skill.name} <span className="text-[#ced4da]">({skill.level})</span>
+                            <motion.li className="border-2 rounded-lg p-2 bg-white/40 text-black hover:bg-white/60" whileHover={{ scale: 1.05 }} key={skill.name}>
+                                <button className="flex items-center justify-between">
+                                    <i className={skill.icon}></i> {skill.name} <span className="text-stone-600">({skill.level})</span>
                                 </button>
                                 <div className="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700">
-                                    <div className="flex flex-col justify-center rounded-full overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap dark:bg-blue-500 transition duration-500" style={{ width: `${(levelOrder[skill.level] / 4) * 100}%` }}></div>
+                                    <div className="flex flex-col justify-center rounded-full overflow-hidden text-xs text-white text-center whitespace-nowrap bg-[#ffab04] transition duration-500" style={{ width: `${(levelOrder[skill.level] / 4) * 100}%` }}></div>
                                 </div>
-                            </li>
+                            </motion.li>
                         ))}
                     </ul>
                 </div>

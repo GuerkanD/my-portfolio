@@ -1,7 +1,7 @@
 export function Navigation() {
     return (
         <>
-            <nav className="bg-[#495057] text-[#f8f9fa] w-full text-center font-extrabold text-2xl">Welcome to my Portfolio!</nav>
+            <nav className="w-full text-center font-extrabold text-2xl bg-gray-800 text-white">Welcome to my Portfolio!</nav>
         </>
     )
 }

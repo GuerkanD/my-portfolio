@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="bg-[#495057] text-white py-4">
+        <footer className="bg-gray-800 text-white py-4">
             <div className="container mx-auto px-4">
                 <p className="text-center text-sm">
                     &copy; {new Date().getFullYear()} Gürkan Deniz. All rights reserved.

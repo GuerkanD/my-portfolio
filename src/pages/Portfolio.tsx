@@ -1,19 +1,19 @@
 import { Experience } from "../components/Experience.tsx";
-import { Projects } from "../components/Projects.tsx";
 import { Skills } from "../components/Skills.tsx";
 import { Navigation } from "../components/Navigation.tsx";
 import { Footer } from "../components/Footer.tsx";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 export function Portfolio() {
 
     const [showElement, setShowElement] = useState(true);
     return (
-        <div className="bg-custom">
+        <div className="bg-gradient-to-br from-black via-gray-900 to-red-950 text-white">
             <Navigation></Navigation>
             <div className="pt-20">
-                <div className="md:mx-40">
-                    <div className="grid lg:grid-cols-2 lg:gap-4 rounded-2xl shadow-2xl outline-2 outline-[#343a40] bg-secondary text-[#f8f9fa]">
+                <motion.div className="md:mx-40" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
+                    <div className="grid lg:grid-cols-2 lg:gap-4 rounded-2xl shadow-2xl bg-white/20">
                         <div className="p-6 flex flex-col justify-center">
                             <h1 className="text-2xl font-bold mb-4">
                                 Hi! My name is <span className="">Gürkan Deniz</span>
@@ -27,16 +27,15 @@ export function Portfolio() {
                             <p className="text-lg mt-4">
                                 I don’t have all the answers yet, but I’m curious and open-minded. Every mistake or problem is just another chance to get better. For me, programming isn’t just about code—it’s about solving problems and building something useful.
                             </p>
-
                             <div className="align-bottom mt-10 lg:mt-30">
                                 <p className="font-bold">Are you interested? You can find me here:</p>
                                 <div className="flex gap-4">
-                                    <a href="https://github.com/GuerkanD" target="_blank" rel="noopener noreferrer">
+                                    <motion.a href="https://github.com/GuerkanD" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} >
                                         <i className="devicon-github-original text-4xl hover:text-gray-500"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/guerkan-deniz" target="_blank" rel="noopener noreferrer">
+                                    </motion.a>
+                                    <motion.a href="https://www.linkedin.com/in/guerkan-deniz" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.1 }} >
                                         <i className="devicon-linkedin-plain text-4xl hover:text-gray-500"></i>
-                                    </a>
+                                    </motion.a>
                                 </div>
                             </div>
                         </div>
@@ -44,24 +43,24 @@ export function Portfolio() {
                             <img src="/picture.jpg" alt="Portrait" className="max-w-90 w-full h-auto object-contain rounded-lg shadow-md" />
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
             <div className="pb-20">
-                <div className="shadow-2xl rounded-2xl md:mx-40 mt-20 md:px-6 py-5 bg-secondary outline-2 outline-[#343a40] text-[#f8f9fa]">
+                <motion.div className="shadow-2xl rounded-2xl md:mx-40 mt-20 md:px-6 py-5 bg-white/20" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
                     <nav className="flex justify-center gap-4">
                         <ul className="flex gap-4">
                             <li>
-                                <button className="bg-[#adb5bd] px-4 py-2 rounded-md hover:bg-[#6c757d] active:bg-gray-200" onClick={() => setShowElement(true)}>Experience</button>
+                                <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setShowElement(true)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Experience</motion.button>
                             </li>
                             <li>
-                                <button className="bg-[#adb5bd] px-4 py-2 rounded-md hover:bg-[#6c757d] active:bg-gray-200" onClick={() => setShowElement(false)}>Skills</button>
+                                <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setShowElement(false)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Skills</motion.button>
                             </li>
                         </ul>
                     </nav>
-                    <div>
+                    <motion.div>
                         {showElement ? <Experience></Experience> : <Skills></Skills>}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
             <Footer></Footer>
         </div>
