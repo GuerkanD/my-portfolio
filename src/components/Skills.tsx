@@ -49,10 +49,10 @@ function sortSkills() {
                         {skills.map(skill => (
                             <motion.li className="border-2 rounded-lg p-2 bg-white/40 text-black hover:bg-white/60" whileHover={{ scale: 1.05 }} key={skill.name}>
                                 <button className="flex items-center justify-between">
-                                    <i className={skill.icon}></i> {skill.name} <span className="text-stone-600">({skill.level})</span>
+                                    <i className={`${skill.icon} me-2`}></i> {skill.name} <span className="text-stone-600 ms-1">({skill.level})</span>
                                 </button>
                                 <div className="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700">
-                                    <div className="flex flex-col justify-center rounded-full overflow-hidden text-xs text-white text-center whitespace-nowrap bg-[#ffab04] transition duration-500" style={{ width: `${(levelOrder[skill.level] / 4) * 100}%` }}></div>
+                                    <div className="flex flex-col justify-center rounded-full overflow-hidden text-xs text-white text-center whitespace-nowrap bg-yellow-700 transition duration-500" style={{ width: `${(levelOrder[skill.level] / 4) * 100}%` }}></div>
                                 </div>
                             </motion.li>
                         ))}

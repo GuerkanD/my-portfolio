@@ -1,34 +1,46 @@
-import { motion } from "motion/react";
+import { div } from "motion/react-client";
 import { experiences } from "../assets/experiences";
+import { motion } from "motion/react";
 
 export function Experience() {
-    return (
-        <section>
-            <h1 className="text-2xl font-bold mb-1">My Experience</h1>
-            <div className="flex flex-col gap-4">
-                <ul className="space-y-8">
-                    {mapExperiences()}
-                </ul>
-            </div>
-        </section>
-    )
+  return (
+    <ol className="relative border-s border-stone-500 mt-8">
+      {mapExperiences()}
+    </ol>
+  )
 }
 
 function mapExperiences() {
-    return experiences.map((exp, i) => (
-        <motion.div key={i} className="p-4 rounded shadow hover:bg-spare bg-white/30 text-black" whileHover={{ scale: 1.05 }}>
-            <li className="relative">
-                <div className="absolute left-0 top-0 w-1 h-full bg-gray-300"></div>
-                <div className="flex items-center space-x-4">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full"></div>
-                    <div>
-                        <h2 className="text-xl font-semibold">{exp.jobTitle}</h2>
-                        <h3 className="text-md text-stone-600">{exp.companyName} – {exp.location}</h3>
-                        <p className="text-sm">{exp.startDate} – {exp.endDate ?? "Present"}</p>
-                        {exp.description && <p className="mt-2">{exp.description}</p>}
-                    </div>
-                </div>
-            </li>
-        </motion.div>
-    ));
+  return (
+    <div>
+      {experiences.map((exp, i) => (
+        <div>
+          <li className="mb-10 ms-6 relative">
+            <span className="absolute flex items-center justify-center w-6 h-6 bg-white rounded-full -start-9 ring-3 ring-white/30 "></span>
+            <motion.div key={i} whileHover={{ scale: 1.01 }}>
+              <div className="bg-white/30 rounded-2xl px-3 py-2" >
+                <h3 className="flex items-center mb-1 text-lg font-semibold text-white">
+                  {exp.jobTitle}
+                  <span className="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300 ms-3">
+                    {exp.companyName}
+                  </span>
+                </h3>
+                <p className="text-sm text-white mb-1">
+                  {exp.location}
+                </p>
+                <time className="block mb-2 text-sm font-normal leading-none text-gray-300">
+                  {exp.startDate} – {exp.endDate ?? "Present"}
+                </time>
+                {exp.description && (
+                  <p className="text-base font-normal text-gray-200">
+                    {exp.description}
+                  </p>
+                )}
+              </div>
+            </motion.div>
+          </li>
+        </div>
+      ))}
+    </div>
+  );
 }

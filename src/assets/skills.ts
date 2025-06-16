@@ -34,8 +34,8 @@ export const skills: Skill[] = [
     { name: "Kubernetes", area: "CI/CD", level: "Beginner", icon: "devicon-kubernetes-plain" },
   
     // Database
-    { name: "PostgreSQL", area: "Database", level: "Advanced", icon: "devicon-postgresql-plain" },
-    { name: "SQL", area: "Database", level: "Advanced", icon: "devicon-mysql-plain" },
+    { name: "PostgreSQL", area: "Database", level: "Expert", icon: "devicon-postgresql-plain" },
+    { name: "SQL", area: "Database", level: "Expert", icon: "devicon-mysql-plain" },
   
     // Tools
     { name: "VS Code", area: "Tool", level: "Expert", icon: "devicon-vscode-plain" },
