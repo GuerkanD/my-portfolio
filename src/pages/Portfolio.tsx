@@ -1,23 +1,19 @@
 import { Experience } from "../components/Experience.tsx";
 import { Skills } from "../components/Skills.tsx";
 import { Footer } from "../components/Footer.tsx";
-import { useState } from "react";
-import { motion } from "motion/react";
+import { Component, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Education } from "../components/Education.tsx";
 
 export function Portfolio() {
 
-    type Section = 'experience' | 'skills' | 'education';
-    const [currentSection, setCurrentSection] = useState<Section>('experience');
+    const components = {
+        Experience: <Experience />,
+        Skills: <Skills />,
+        Education: <Education />
+    }
 
-    const renderComponent = () => {
-        switch (currentSection) {
-            case 'experience': return <Experience />;
-            case 'skills': return <Skills />;
-            case 'education': return <Education />;
-        }
-    };
-
+    const [activeComponent, setActiveComponent] = useState(components.Experience)
 
 
     return (
@@ -63,28 +59,25 @@ export function Portfolio() {
             </div>
             <div className="pb-20">
                 <motion.div className="shadow-2xl rounded-2xl md:mx-40 mt-20 md:px-6 py-5 bg-white/20" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
-                    <div>
+                    <div className="border-solid border-b border-white pb-2">
                         <nav className="flex justify-center gap-4">
                             <ul className="flex gap-4">
-                                <li>
-                                    <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setCurrentSection("experience")} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Experience</motion.button>
-                                </li>
-                                <li>
-                                    <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setCurrentSection("skills")} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Skills</motion.button>
-                                </li>
-                                <li>
-                                    <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setCurrentSection("education")} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>Education</motion.button>
-                                </li>
+                                {Object.entries(components).map(([key, Component]) => (
+                                    <li key={key}>
+                                        <motion.button className="hover:bg-white/30 border-1 px-4 py-2 rounded-md active:bg-white/40" onClick={() => setActiveComponent(Component)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+                                            {key}
+                                        </motion.button>
+                                    </li>
+                                ))}
                             </ul>
                         </nav>
                     </div>
                     <motion.div>
-                        {renderComponent()}
+                        {activeComponent}
                     </motion.div>
                 </motion.div>
             </div>
             <Footer></Footer>
-
         </div>
     );
 }
