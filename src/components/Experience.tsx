@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import { experiences } from "../assets/experiences";
 import { motion } from "motion/react";
 

@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { education } from "../assets/education"
 
 export function Education() {
@@ -13,9 +14,10 @@ export function Education() {
 
 function mapEducations() {
     return education.map((e, index) => (
-        <div
+        <motion.div
             key={index}
             className="md:w-200 bg-white/20 backdrop-blur-sm shadow-lg rounded-2xl p-6"
+            whileHover={{ scale: 1.02 }}
         >
             <h2 className="text-xl font-semibold text-white">{e.fieldOfStudy}</h2>
             <h3 className="text-md text-white/80 mb-2">{e.degree}</h3>
@@ -27,6 +29,6 @@ function mapEducations() {
                 <p><strong>Institution:</strong> {e.institution}</p>
                 <p className="mt-2">{e.description}</p>
             </div>
-        </div>
+        </motion.div>
     ));
 }
