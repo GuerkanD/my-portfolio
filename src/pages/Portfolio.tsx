@@ -1,8 +1,8 @@
 import { Experience } from "../components/Experience.tsx";
 import { Skills } from "../components/Skills.tsx";
 import { Footer } from "../components/Footer.tsx";
-import { Component, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { Education } from "../components/Education.tsx";
 
 export function Portfolio() {
@@ -18,12 +18,12 @@ export function Portfolio() {
 
     return (
         <div className="bg-gradient-to-br from-black via-gray-900 to-red-950 text-white">
-            <div className="pt-20">
-                <motion.div className="md:mx-40" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
+            <div className="lg:pt-20 pt-10">
+                <motion.div className="lg:mx-40 mx-10" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
                     <div className="grid lg:grid-cols-2 lg:gap-4 rounded-2xl shadow-2xl bg-white/20">
                         <div className="p-6 flex flex-col justify-center">
                             <h1 className="text-2xl font-bold mb-4">
-                                Hi! My name is <span className="">Gürkan Deniz</span>
+                                Hi! My name is <span className="text-3xl">Gürkan Deniz</span>
                             </h1>
                             <h3 className="text-lg font-bold">About me</h3> <hr />
                             <p className="text-lg">
@@ -52,13 +52,13 @@ export function Portfolio() {
                             </div>
                         </div>
                         <div className="p-6 flex justify-center items-center">
-                            <img src="/picture.jpg" alt="Portrait" className="max-w-90 w-full h-auto object-contain rounded-lg shadow-md" />
+                            <img src="./picture.jpg" alt="Portrait" className="max-w-90 w-full h-auto object-contain rounded-lg shadow-md" />
                         </div>
                     </div>
                 </motion.div>
             </div>
             <div className="pb-20">
-                <motion.div className="shadow-2xl rounded-2xl md:mx-40 mt-20 md:px-6 py-5 bg-white/20" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
+                <motion.div className="shadow-2xl rounded-2xl lg:mx-40 mx-10 mt-20 md:px-6 py-5 bg-white/20" initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 2 }}>
                     <div className="border-solid border-b border-white pb-2">
                         <nav className="flex justify-center gap-4">
                             <ul className="flex gap-4">
